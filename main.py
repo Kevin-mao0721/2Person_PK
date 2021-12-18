@@ -14,8 +14,8 @@ while True:
     elif p1c == '回血':
         p1.add_blood()
     elif p1c == '探究本草纲目':
-        p1.yjbcgm()
-    elif p1c == '买装备':
+        p1.yjbcgm(p2.bcgme)
+    elif p1c == '买卖装备':
         p1.buy_zb()
     elif p1c is None:
         pass
@@ -29,8 +29,8 @@ while True:
     elif p2c == '回血':
         p2.add_blood()
     elif p2c == '探究本草纲目':
-        p2.yjbcgm()
-    elif p2c == '买装备':
+        p2.yjbcgm(p1.bcgme)
+    elif p2c == '买卖装备':
         p2.buy_zb()
     elif p2c is None:
         pass
