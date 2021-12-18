@@ -1,11 +1,3 @@
-# def Get_small(list0):
-#     if len(list0) == 1:
-#         return list0[0]
-#     list0.remove(max(list0))
-#     return Get_small(list0)
-#
-#
-# print(Get_small([1,2,2]))
 from game_function import *
 from people import Person
 

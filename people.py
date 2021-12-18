@@ -88,7 +88,7 @@ class Person:
             if self.bcgm == 3:
                 box.msgbox('研究完毕，添加治疗上限')
                 self.add = [5, 13]
-                self.jn = ['进攻', '回血']
+                self.jn = ['进攻', '回血', '买装备']
         else:
             a = r.randint(0, 3)
             self.bcgm += a
@@ -96,7 +96,7 @@ class Person:
             box.msgbox('本草纲目研究进度：+{}，还需研究{}次'.format(a, 10 - self.bcgm))
             if self.bcgm >= 10:
                 self.add = [2, 8]
-                self.jn = ['进攻', '回血']
+                self.jn = ['进攻', '回血', '买装备']
 
     def buy_zb(self):
         self.s.buy_kj(self)
