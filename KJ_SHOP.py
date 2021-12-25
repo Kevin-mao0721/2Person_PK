@@ -14,6 +14,8 @@ class Shop:
                                                           '2:铁盔甲（耐久：47，盔甲+2）￥250',
                                                           '3:钻石甲（耐久：85，盔甲+3.5）￥500',
                                                           '4:金盔甲（耐久：37，盔甲+5）￥500'])
+        if k is None:
+            box.msgbox('你已离开市场')
         kjn = int(k[0])
         if kjn == 3:
             kjd = int(k[20:])
@@ -47,7 +49,7 @@ class Shop:
 
     def sell(self, p):
         if p.kj_attr['bkj'] == '1':
-            sell = int(100 / 24 * p.kj_attr['kjnj']) - (24 - p.kj_attr['kjnj']) / 2
+            sell = int(100 / 24 * p.kj_attr['kjnj']) - (24 - p.kj_attr['kjnj']) / 2 - 1
             self.check_destroy(sell)
             if box.ynbox('是否要卖出它？？？你可获得{}元'.format(sell)):
                 p.kj_attr['kj'] -= float(p.kj_attr['bkj'])
@@ -56,7 +58,7 @@ class Shop:
                 p.kj_attr['kjnj'] = None
                 p.dollar += sell
         elif p.kj_attr['bkj'] == '2':
-            sell = int(250 / 47 * p.kj_attr['kjnj']) - (47 - p.kj_attr['kjnj']) / 2
+            sell = int(250 / 47 * p.kj_attr['kjnj']) - (47 - p.kj_attr['kjnj']) / 2 - 1
             self.check_destroy(sell)
             if box.ynbox('是否要卖出它？？？你可获得{}元'.format(sell)):
                 p.kj_attr['kj'] -= float(p.kj_attr['bkj'])
@@ -65,7 +67,7 @@ class Shop:
                 p.kj_attr['kjnj'] = None
                 p.dollar += sell
         elif p.kj_attr['bkj'] == '3.5':
-            sell = int(500 / 85 * p.kj_attr['kjnj']) - (85 - p.kj_attr['kjnj']) / 2
+            sell = int(500 / 85 * p.kj_attr['kjnj']) - (85 - p.kj_attr['kjnj']) / 2 - 1
             self.check_destroy(sell)
             if box.ynbox('是否要卖出它？？？你可获得{}元'.format(sell)):
                 p.kj_attr['kj'] -= float(p.kj_attr['bkj'])
@@ -74,7 +76,7 @@ class Shop:
                 p.kj_attr['kjnj'] = None
                 p.dollar += sell
         elif p.kj_attr['bkj'] == '5':
-            sell = int(500 / 37 * p.kj_attr['kjnj']) - (37 - p.kj_attr['kjnj']) / 2
+            sell = int(500 / 37 * p.kj_attr['kjnj']) - (37 - p.kj_attr['kjnj']) / 2 - 1
             self.check_destroy(sell)
             if box.ynbox('是否要卖出它？？？你可获得{}元'.format(sell)):
                 p.kj_attr['kj'] -= float(p.kj_attr['bkj'])

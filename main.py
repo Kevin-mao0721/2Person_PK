@@ -17,6 +17,8 @@ while True:
         p1.yjbcgm(p2.bcgme)
     elif p1c == '买卖装备':
         p1.buy_zb()
+    elif p1c == '赚钱':
+        p1.earn_MN()
     elif p1c is None:
         pass
 
@@ -32,5 +34,7 @@ while True:
         p2.yjbcgm(p1.bcgme)
     elif p2c == '买卖装备':
         p2.buy_zb()
+    elif p2c == '赚钱':
+        p2.earn_MN()
     elif p2c is None:
         pass

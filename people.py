@@ -1,6 +1,6 @@
 import random as r
 import ybc_box as box
-from Shopping import Shop
+from KJ_SHOP import Shop
 
 
 class Person:
@@ -12,36 +12,42 @@ class Person:
         if self.p == '吕布（伤害高）':
             self.maxlife = 100.0
             self.life = 100.0
-            self.attack = [5, 15]
             self.add = [2, 5]
             self.bcgm = 0
             self.kj_attr = {'kj': 2,
                             'bkj': None,
                             'kjnj': None}
+            self.ack_attr = {'ack': [5, 15],
+                             'back': None,
+                             'zcknj': None}
             self.dollar = 1000
-            self.jn = ['进攻', '回血', '买卖装备', '探究本草纲目']
+            self.jn = ['进攻', '回血', '赚钱', '买卖装备', '探究本草纲目']
         elif self.p == '关羽（伤害抗性高）':
             self.maxlife = 100.0
             self.life = 100.0
-            self.attack = [5, 10]
             self.add = [2, 5]
             self.bcgm = 0
             self.kj_attr = {'kj': 3,
                             'bkj': None,
                             'kjnj': None}
+            self.ack_attr = {'ack': [5, 10],
+                             'back': None,
+                             'zcknj': None}
             self.dollar = 1000
-            self.jn = ['进攻', '回血', '买卖装备', '探究本草纲目']
+            self.jn = ['进攻', '回血', '赚钱', '买卖装备', '探究本草纲目']
         elif self.p == '华佗（血量低， 治疗高）':
             self.maxlife = 80.0
             self.life = 80.0
-            self.attack = [5, 10]
             self.add = [5, 8]
             self.bcgm = 0
             self.kj_attr = {'kj': 1,
                             'bkj': None,
                             'kjnj': None}
+            self.ack_attr = {'ack': [5, 9],
+                             'back': None,
+                             'zcknj': None}
             self.dollar = 1000
-            self.jn = ['进攻', '回血', '买卖装备', '探究本草纲目']
+            self.jn = ['进攻', '回血', '赚钱', '买卖装备', '探究本草纲目']
         else:
             self.maxlife = 50.0
             self.life = 50.0
@@ -50,11 +56,14 @@ class Person:
             self.kj_attr = {'kj': 0,
                             'bkj': None,
                             'kjnj': None}
+            self.ack_attr = {'ack': [1, 2],
+                             'back': None,
+                             'zcknj': None}
             self.dollar = 100
-            self.jn = ['进攻', '回血', '买卖装备']
+            self.jn = ['进攻', '回血', '赚钱', '买卖装备']
 
     def attacko(self, beattack):
-        a = r.randint(self.attack[0], self.attack[1]) - beattack.kj_attr['kj']
+        a = r.randint(self.ack_attr['ack'][0], self.ack_attr['ack'][1]) - beattack.kj_attr['kj']
         if a > 0:
             beattack.life -= a
             box.msgbox('造成伤害：{}滴血'.format(a))
@@ -92,12 +101,12 @@ class Person:
                     self.add = [5, 13]
                     self.dollar += 750
                     self.bcgme = True
-                    self.jn = ['进攻', '回血', '买卖装备']
+                    self.jn = ['进攻', '回血', '赚钱', '买卖装备']
                 else:
                     box.msgbox('研究完毕，添加治疗上限, + 100元')
                     self.add = [5, 13]
                     self.dollar += 100
-                    self.jn = ['进攻', '回血', '买卖装备']
+                    self.jn = ['进攻', '回血', '赚钱', '买卖装备']
         else:
             a = r.randint(0, 3)
             self.bcgm += a
@@ -110,12 +119,22 @@ class Person:
                     self.add = [2, 8]
                     self.dollar += 500
                     self.bcgme = True
-                    self.jn = ['进攻', '回血', '买卖装备']
+                    self.jn = ['进攻', '回血', '赚钱', '买卖装备']
                 else:
                     box.msgbox('研究完毕，添加治疗上限, + 50元')
                     self.add = [2, 8]
                     self.dollar += 50
-                    self.jn = ['进攻', '回血', '买卖装备']
+                    self.jn = ['进攻', '回血', '赚钱', '买卖装备']
 
     def buy_zb(self):
         self.s.come(self)
+
+    def earn_MN(self):
+        if self.p == '华佗（血量低， 治疗高）':
+            ra = r.randint(1, 120)
+            self.dollar += ra
+            box.msgbox('恭喜你赚到了{}元，你有{}元了！'.format(ra, self.dollar))
+        else:
+            ra = r.randint(1, self.life + 35)
+            self.dollar += ra
+            box.msgbox('恭喜你赚到了{}元，你有{}元了！'.format(ra, self.dollar))
