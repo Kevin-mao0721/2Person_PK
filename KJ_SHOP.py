@@ -1,7 +1,7 @@
 import ybc_box as box
 
 
-class Shop:
+class KJShop:
     def come(self, p):
         if p.kj_attr['bkj'] is None:
             self.buy(p)
@@ -16,6 +16,7 @@ class Shop:
                                                           '4:金盔甲（耐久：37，盔甲+5）￥500'])
         if k is None:
             box.msgbox('你已离开市场')
+            return
         kjn = int(k[0])
         if kjn == 3:
             kjd = int(k[20:])

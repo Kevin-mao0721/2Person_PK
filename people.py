@@ -1,12 +1,14 @@
 import random as r
 import ybc_box as box
-from KJ_SHOP import Shop
+from KJ_SHOP import KJShop
+from ACK_SHOP import ACKShop
 
 
 class Person:
     def __init__(self, name):
         self.name = name
-        self.s = Shop()
+        self.sk = KJShop()
+        self.sa =ACKShop()
         self.p = box.buttonbox(name + ',请选择角色', ['吕布（伤害高）', '关羽（伤害抗性高）', '华佗（血量低， 治疗高）'])
         self.bcgme = False
         if self.p == '吕布（伤害高）':
@@ -127,7 +129,11 @@ class Person:
                     self.jn = ['进攻', '回血', '赚钱', '买卖装备']
 
     def buy_zb(self):
-        self.s.come(self)
+        a = box.buttonbox('你要去哪个市场？？？', ['刀剑市场', '盔甲市场'])
+        if a == '刀剑市场':
+            self.sa.come(self)
+        else:
+            self.sk.come(self)
 
     def earn_MN(self):
         if self.p == '华佗（血量低， 治疗高）':
