@@ -7,5 +7,6 @@
     0：最初版本
     #RA：添加README
     #RC：修改README
+    RC：增加可读性
     ShopN：有关商店的更新
     #BS/M/L: Bug的小/中/大修改
